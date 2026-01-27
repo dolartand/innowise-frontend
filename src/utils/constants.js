@@ -1,0 +1,22 @@
+export const API_URL = 'http://innowise.local'
+
+export const ORDER_STATUSES = {
+    PENDING: 'PENDING',
+    PROCESSING: 'PROCESSING',
+    SHIPPED: 'SHIPPED',
+    DELIVERED: 'DELIVERED',
+    CANCELLED: 'CANCELLED'
+}
+
+export const PAYMENT_STATUSES = {
+    PENDING: 'PENDING',
+    PROCESSING: 'PROCESSING',
+    SUCCESS: 'SUCCESS',
+    DELIVERED: 'DELIVERED',
+    CANCELED: 'CANCELED'
+}
+
+export const ROLES = {
+    USER: 'USER',
+    ADMIN: 'ADMIN'
+}
