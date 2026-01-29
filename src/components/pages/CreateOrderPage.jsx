@@ -109,7 +109,7 @@ const CreateOrderPage = () => {
                                 {items.map(item => (
                                     <tr key={item.id}>
                                         <td>{item.name}</td>
-                                        <td>{item.price?.toFixed(2)} ₽</td>
+                                        <td>{item.price?.toFixed(2)} р.</td>
                                         <td>
                                             <Form.Control
                                                 type="number"
@@ -139,13 +139,13 @@ const CreateOrderPage = () => {
                                     {Object.values(cart).map(item => (
                                         <div key={item.id} className="d-flex justify-content-between mb-2">
                                             <span>{item.name} × {item.quantity}</span>
-                                            <span>{(item.price * item.quantity).toFixed(2)} ₽</span>
+                                            <span>{(item.price * item.quantity).toFixed(2)} р.</span>
                                         </div>
                                     ))}
                                     <hr />
                                     <div className="d-flex justify-content-between fw-bold fs-5">
                                         <span>Итого:</span>
-                                        <span>{cartTotal.toFixed(2)} ₽</span>
+                                        <span>{cartTotal.toFixed(2)} р.</span>
                                     </div>
                                 </>
                             )}

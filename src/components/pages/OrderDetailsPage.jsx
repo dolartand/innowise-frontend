@@ -117,7 +117,7 @@ const OrderDetailsPage = () => {
                                 {payment.status}
                             </Badge>
                         </p>
-                        <p><strong>Сумма:</strong> {payment.totalAmount?.toFixed(2)} ₽</p>
+                        <p><strong>Сумма:</strong> {payment.totalAmount?.toFixed(2)} р.</p>
                         <p><strong>Дата:</strong> {new Date(payment.timestamp).toLocaleString('ru-RU')}</p>
                     </Card.Body>
                 </Card>
