@@ -138,7 +138,7 @@ const HomePage = () => {
                                 <div key={item.id} className="d-flex justify-content-between align-items-center border-bottom py-2">
                                     <span>{item.name} × {item.quantity}</span>
                                     <div>
-                                        <span className="me-3">{(item.price * item.quantity).toFixed(2)} ₽</span>
+                                        <span className="me-3">{(item.price * item.quantity).toFixed(2)} р.</span>
                                         <Button
                                             variant="outline-danger"
                                             size="sm"

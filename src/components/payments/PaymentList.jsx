@@ -27,7 +27,7 @@ const PaymentList = ({ payments }) => {
                 <tr key={payment.id}>
                     <td>{payment.id}</td>
                     <td>#{payment.orderId}</td>
-                    <td>{payment.totalAmount?.toFixed(2)} ₽</td>
+                    <td>{payment.totalAmount?.toFixed(2)} р.</td>
                     <td>
                         <Badge bg={statusVariants[payment.status] || 'secondary'}>
                             {payment.status}

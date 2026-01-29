@@ -31,7 +31,7 @@ const OrderDetails = ({ order, onStatusChange, onDelete }) => {
                         <p><strong>Пользователь:</strong> {order.user ? `${order.user.name} ${order.user.surname}` : `#${order.userId}`}</p>
                     </div>
                     <div className="col-md-6">
-                        <p className="fs-4"><strong>Итого:</strong> {order.totalPrice?.toFixed(2)} ₽</p>
+                        <p className="fs-4"><strong>Итого:</strong> {order.totalPrice?.toFixed(2)} р.</p>
                     </div>
                 </div>
 
@@ -49,9 +49,9 @@ const OrderDetails = ({ order, onStatusChange, onDelete }) => {
                     {order.items?.map((item, idx) => (
                         <tr key={idx}>
                             <td>{item.itemName || item.name}</td>
-                            <td>{item.price?.toFixed(2)} ₽</td>
+                            <td>{item.price?.toFixed(2)} р.</td>
                             <td>{item.quantity}</td>
-                            <td>{(item.price * item.quantity).toFixed(2)} ₽</td>
+                            <td>{(item.price * item.quantity).toFixed(2)} р.</td>
                         </tr>
                     ))}
                     </tbody>
