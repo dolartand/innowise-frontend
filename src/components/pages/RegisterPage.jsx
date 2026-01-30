@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Card, Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import { useAuth } from '../context/AuthContext';
-import RegisterForm from '../components/auth/RegisterForm';
+import { useAuth } from '../../context/AuthContext';
+import RegisterForm from '../../components/auth/RegisterForm';
 
 const RegisterPage = () => {
     const [loading, setLoading] = useState(false);
