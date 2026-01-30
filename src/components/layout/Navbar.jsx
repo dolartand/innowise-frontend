@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
         <BsNavbar bg="primary" variant="dark" expand="lg" sticky="top">
             <Container>
-                <BsNavbar.Brand as={Link} to "/">
+                <BsNavbar.Brand as={Link} to="/">
                     Online Shop
                 </BsNavbar.Brand>
 
@@ -61,3 +61,5 @@ const Navbar = () => {
         </BsNavbar>
     );
 }
+
+export default Navbar;
