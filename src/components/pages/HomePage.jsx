@@ -1,4 +1,4 @@
-import {useState, useEffect, use} from "react";
+import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button, Badge, InputGroup, Card, Form} from "react-bootstrap";
 import {toast} from "react-toastify";
@@ -25,7 +25,7 @@ const HomePage = () => {
     const fetchItems = async () => {
         setLoading(true);
         try {
-            const response = await  ItemService.getAllItems({
+            const response = await ItemService.getAllItems({
                 page: currentPage,
                 size: 12
             });
@@ -160,7 +160,7 @@ const HomePage = () => {
                 <>
                     <ItemList
                         items={items}
-                        onAddToCart={addToCart()}
+                        onAddToCart={addToCart}
                         cartItems={cart}
                         />
                     <div className='mt-4'>
