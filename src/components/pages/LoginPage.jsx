@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {Card, Container} from "react-bootstrap";
 import {toast} from "react-toastify";
 import {useAuth} from "../../context/AuthContext.jsx";
@@ -9,8 +9,8 @@ const LoginPage = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const {login} = useAuth();
-    const {navigate} = useNavigate();
-    const {location} = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
 
@@ -23,7 +23,7 @@ const LoginPage = () => {
             toast.success('Вход выполнен успешно!');
             navigate(from, {replace: true});
         } catch (error) {
-            const message = err.response?.data?.message || 'Ошибка входа. Проверьте email и пароль.';
+            const message = error.response?.data?.message || 'Ошибка входа. Проверьте email и пароль.';
             setError(message);
             toast.error(message);
         } finally {
