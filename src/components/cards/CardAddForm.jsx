@@ -6,12 +6,13 @@ const CardAddForm = ({show, onHide, onSubmit, loading}) => {
         number: '',
         holder: '',
         expiryDate: '',
-        cvv: ''
+        cvv: '',
+        active: true
     });
     const [error, setError] = useState('');
 
     const handleChange = (e) => {
-        const {name, value} = e.target();
+        const {name, value} = e.target;
         setFormData(prev => ({...prev, [name]: value}));
     };
 
@@ -36,7 +37,18 @@ const CardAddForm = ({show, onHide, onSubmit, loading}) => {
             return;
         }
 
-        onSubmit(formData);
+        const [month, year] = formData.expiryDate.split('/');
+        const fullYear = `20${year}`;
+        const expirationDate = `${fullYear}-${month}-01`;
+
+        const cardData = {
+            number: formData.number,
+            holder: formData.holder,
+            expirationDate: expirationDate,
+            active: true
+        };
+
+        onSubmit(cardData);
         setFormData({ number: '', holder: '', expiryDate: '', cvv: ''});
     }
 
@@ -48,7 +60,7 @@ const CardAddForm = ({show, onHide, onSubmit, loading}) => {
             <Form onSubmit={handleSubmit}>
                 <Modal.Body>
                     {error && <Alert variant='danger'>{error}</Alert>}
-                    <Form.Group clDataassName='mb-3'>
+                    <Form.Group className='mb-3'>
                         <Form.Label>Номер карты</Form.Label>
                         <Form.Control
                             type='text'
