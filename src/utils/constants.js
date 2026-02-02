@@ -1,4 +1,4 @@
-export const API_URL = 'http://innowise.local/'
+export const API_URL = ''
 
 export const ORDER_STATUSES = {
     PENDING: 'PENDING',
