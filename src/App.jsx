@@ -12,6 +12,7 @@ import PaymentsPage from "./components/pages/PaymentsPage.jsx"
 import ProfilePage from "./components/pages/ProfilePage.jsx";
 import RegisterPage from "./components/pages/RegisterPage.jsx";
 import UsersPage from "./components/pages/UsersPage.jsx";
+import ItemsManagementPage from "./components/pages/ItemsManagementPage.jsx";
 
 function App() {
     return (
@@ -54,6 +55,11 @@ function App() {
                 <Route path="/admin/users" element={
                     <AdminRoute>
                         <UsersPage />
+                    </AdminRoute>
+                } />
+                <Route path="/admin/items" element={
+                    <AdminRoute>
+                        <ItemsManagementPage />
                     </AdminRoute>
                 } />
             </Routes>
