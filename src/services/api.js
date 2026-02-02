@@ -39,16 +39,17 @@ api.interceptors.response.use(
                     originalReq.headers.Authorization = `Bearer ${accessToken}`;
                     return api(originalReq);
                 } catch (refreshError) {
-                      removeToken();
-                      window.location.href = '/login';
-                      return Promise.reject(refreshError);
-                    }
-                } else {
+                    removeToken();
+                    window.location.href = '/login';
+                    return Promise.reject(refreshError);
+                }
+            } else {
                 removeToken();
                 window.location.href = '/login';
             }
         }
         return Promise.reject(error);
     }
-)
+);
+
 export default api;
