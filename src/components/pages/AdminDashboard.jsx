@@ -88,7 +88,7 @@ const AdminDashboard = () => {
         <div>
             <h2 className="mb-4">Панель администратора</h2>
 
-            <Row className="mb-4">
+            <Row className="mb-4 g-3">
                 <Col md={4}>
                     <Card className="text-center h-100">
                         <Card.Body>
@@ -124,6 +124,18 @@ const AdminDashboard = () => {
                         </Card.Body>
                     </Card>
                 </Col>
+                <Col md={3}>
+                    <Card className="text-center h-100">
+                        <Card.Body>
+                            <h6 className="text-muted">Товары</h6>
+                            <p className="display-4 text-warning">📦</p>
+                            <Button as={Link} to="/admin/items" variant="outline-warning" size="sm">
+                                Управление
+                            </Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+
             </Row>
 
             <Card className="mb-4">
