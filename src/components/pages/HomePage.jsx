@@ -29,7 +29,7 @@ const HomePage = () => {
                 page: currentPage,
                 size: 12
             });
-            setItems(response.context || []);
+            setItems(response.content || []);
             setTotalPages(response.totalPages || 0);
         } catch (error) {
             toast.error('Ошибка загрузки');
@@ -68,6 +68,9 @@ const HomePage = () => {
         setCart(prev => ({
             ...prev,
             [item.id]: {
+                id: item.id,
+                name: item.name,
+                price: item.price,
                 quantity: (prev[item.id]?.quantity || 0) + 1
             }
         }));
@@ -92,7 +95,11 @@ const HomePage = () => {
     const cartTotal = Object.values(cart).reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     const handleProceedToOrder = () => {
-        navigate('/orders/create', {state: {cart}});
+        const cartItems = Object.values(cart).map(item => ({
+            itemId: item.id,
+            quantity: item.quantity
+        }));
+        navigate('/orders/create', {state: {cartItems}});
     }
 
     return (
