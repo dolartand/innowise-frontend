@@ -6,7 +6,8 @@ const UserEditForm = ({ show, onHide, onSubmit, user, loading }) => {
         name: '',
         surname: '',
         email: '',
-        birthDate: ''
+        birthDate: '',
+        active: true
     });
     const [error, setError] = useState('');
 
@@ -16,7 +17,8 @@ const UserEditForm = ({ show, onHide, onSubmit, user, loading }) => {
                 name: user.name || '',
                 surname: user.surname || '',
                 email: user.email || '',
-                birthDate: user.birthDate || ''
+                birthDate: user.birthDate || '',
+                active: user.active !== undefined ? user.active : true
             });
         }
     }, [user]);
