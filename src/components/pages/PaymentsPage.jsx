@@ -21,7 +21,7 @@ const PaymentsPage = () => {
         fetchPayments()
     }, [currentPage, user]);
 
-    const fetchPayment = async () => {
+    const fetchPayments = async () => {
         if (!user?.userId) {
             return null;
         }
