@@ -1,24 +1,34 @@
 import { Card, Button, Badge } from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const ItemCard = ({item, onAddToCart, cartQuantity = 0}) => {
-    return (
-        <Card className="h-100 order-item-card">
-            <Card.Body className="d-flex flexcolumn">
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text className="text-primary fw-bold fs-4">
-                    {item.price?.toFixed(2)} р.
-                </Card.Text>
+    const navigate = useNavigate();
 
-                <div className="mt-auto">
-                    {cartQuantity > 0 && (
-                        <Badge bg="success" className="mb-2">
-                            В корзине: {cartQuantity}
-                        </Badge>
-                    )}
+    return (
+        <Card className="h-100" style={{cursor: 'pointer'}} onClick={() => navigate(`/items/${item.id}`)}>
+            <Card.Body className="d-flex flex-column">
+                <Card.Title className="mb-3 fs-5 fw-bold">
+                    {item.name}
+                </Card.Title>
+
+                <div className="mt-auto d-flex justify-content-between align-items-end">
+                    <div>
+                        <div className="text-primary fw-bold fs-4">
+                            {item.price?.toFixed(2)} р.
+                        </div>
+                        {cartQuantity > 0 && (
+                            <Badge bg="success" className="mt-1">
+                                В корзине: {cartQuantity}
+                            </Badge>
+                        )}
+                    </div>
+
                     <Button
                         variant="primary"
-                        className="w-100"
-                        onClick={() => onAddToCart(item)}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onAddToCart(item);
+                        }}
                     >
                         Добавить в заказ
                     </Button>
