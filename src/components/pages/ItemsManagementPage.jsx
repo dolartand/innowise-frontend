@@ -14,9 +14,7 @@ const ItemsManagementPage = () => {
     const [editingItem, setEditingItem] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
-        description: '',
-        price: '',
-        stockQuantity: ''
+        price: ''
     });
 
     useEffect(() => {
@@ -44,17 +42,13 @@ const ItemsManagementPage = () => {
             setEditingItem(item);
             setFormData({
                 name: item.name,
-                description: item.description || '',
-                price: item.price,
-                stockQuantity: item.stockQuantity
+                price: item.price
             });
         } else {
             setEditingItem(null);
             setFormData({
                 name: '',
-                description: '',
-                price: '',
-                stockQuantity: ''
+                price: ''
             });
         }
         setShowModal(true);
@@ -65,9 +59,7 @@ const ItemsManagementPage = () => {
         setEditingItem(null);
         setFormData({
             name: '',
-            description: '',
-            price: '',
-            stockQuantity: ''
+            price: ''
         });
     };
 
@@ -76,9 +68,7 @@ const ItemsManagementPage = () => {
 
         const itemData = {
             name: formData.name,
-            description: formData.description,
-            price: parseFloat(formData.price),
-            stockQuantity: parseInt(formData.stockQuantity)
+            price: parseFloat(formData.price)
         };
 
         try {
@@ -133,9 +123,7 @@ const ItemsManagementPage = () => {
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
-                                    <th>Описание</th>
                                     <th>Цена</th>
-                                    <th>Остаток</th>
                                     <th>Действия</th>
                                 </tr>
                                 </thead>
@@ -144,7 +132,6 @@ const ItemsManagementPage = () => {
                                     <tr key={item.id}>
                                         <td>{item.id}</td>
                                         <td>{item.name}</td>
-                                        <td>{item.description || '-'}</td>
                                         <td>{item.price?.toFixed(2)} р.</td>
                                         <td>
                                             <Badge bg={item.stockQuantity > 0 ? 'success' : 'danger'}>
@@ -202,16 +189,6 @@ const ItemsManagementPage = () => {
                         </Form.Group>
 
                         <Form.Group className="mb-3">
-                            <Form.Label>Описание</Form.Label>
-                            <Form.Control
-                                as="textarea"
-                                rows={3}
-                                value={formData.description}
-                                onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                            />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
                             <Form.Label>Цена *</Form.Label>
                             <Form.Control
                                 type="number"
@@ -219,17 +196,6 @@ const ItemsManagementPage = () => {
                                 min="0"
                                 value={formData.price}
                                 onChange={(e) => setFormData(prev => ({ ...prev, price: e.target.value }))}
-                                required
-                            />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Количество на складе *</Form.Label>
-                            <Form.Control
-                                type="number"
-                                min="0"
-                                value={formData.stockQuantity}
-                                onChange={(e) => setFormData(prev => ({ ...prev, stockQuantity: e.target.value }))}
                                 required
                             />
                         </Form.Group>
