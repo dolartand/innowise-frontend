@@ -53,7 +53,7 @@ const OrderList = ({orders, showUser = false}) => {
                     <td>
                         <Button
                             as={Link}
-                            to={`orders/${order.id}`}
+                            to={`/orders/${order.id}`}
                             variant="outline-primary"
                             size="sm"
                         >
