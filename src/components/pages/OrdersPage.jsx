@@ -38,7 +38,7 @@ const OrdersPage = () => {
                 ...buildFilterParams()
             };
             let response;
-            if (isAdmin) {
+            if (isAdmin()) {
                 response = await orderService.getAllOrders(params);
             } else {
                 response = await orderService.getOrdersByUserId(user.userId, params);
