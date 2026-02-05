@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Card, Button, Badge } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import { useAuth } from '../../context/AuthContext';
-import LoadingSpinner from '../common/LoadingSpinner';
-import * as itemService from '../../services/itemService';
+import { useAuth } from '../../context/AuthContext.jsx';
+import LoadingSpinner from '../common/LoadingSpinner.jsx';
+import * as itemService from '../../services/itemService.js';
 
 const ItemDetailsPage = () => {
     const { id } = useParams();
